@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="myrhcore" />
+        <module name="myrhdao" />
+        <module name="myrhsvco" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="gestion_employee" target="1.5" />
+      <module name="myrhcore" target="1.5" />
+      <module name="myrhdao" target="1.5" />
+      <module name="myrhsvco" target="1.5" />
+      <module name="myrhweb" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
