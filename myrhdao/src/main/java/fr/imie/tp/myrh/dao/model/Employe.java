@@ -44,6 +44,8 @@ public class Employe implements Serializable{
         this.dateEmbauche = dateEmbauche;
         this.dateFinEmbauche = dateFinEmbauche;
     }
+    public Employe() {
+    }
 
     public long getId() {
         return id;
