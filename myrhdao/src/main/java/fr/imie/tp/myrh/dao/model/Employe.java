@@ -9,7 +9,17 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "T_EMPLOYE")
+
+@NamedQueries({
+	@NamedQuery(name="Employe.findAll", query="SELECT e FROM Employe e"),
+	@NamedQuery(name="Employe.findByID", query="SELECT e FROM Employe e WHERE e.id= :idVar"),
+	@NamedQuery(name="Employe.findByName", query="SELECT e FROM Employe e WHERE e.nom= :nomVar"),
+	@NamedQuery(name="Employe.findHighSalary", query="SELECT e FROM Employe e WHERE e.salaire > 40000")
+	
+})
 public class Employe implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 
     @Id
     @Column(name = "ID")
