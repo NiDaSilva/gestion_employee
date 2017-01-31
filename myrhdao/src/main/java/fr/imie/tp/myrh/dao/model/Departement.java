@@ -1,13 +1,14 @@
 package fr.imie.tp.myrh.dao.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by ndasilva on 31/01/2017.
  */
 @Entity
 @Table(name = "T_DEPARTEMENT")
-public class Departement {
+public class Departement implements Serializable {
 
     @Id
     @Column(name = "dep_id")
@@ -43,4 +44,18 @@ public class Departement {
     public void setDescription(String description) {
         this.description = description;
     }
+<<<<<<< HEAD
+=======
+
+    @Id
+    @Column(name = "dep_id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    @Column(name = "dep_code")
+    private String code;
+
+    @Column(name = "dep_description")
+    private String description;
+>>>>>>> origin/master
 }
