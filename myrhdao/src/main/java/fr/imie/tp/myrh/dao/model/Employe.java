@@ -18,7 +18,9 @@ import java.util.Date;
 	
 })
 public class Employe implements Serializable{
-	
+
+    @ManyToMany Departement departement;
+
 	private static final long serialVersionUID = 1L;
 
     @Id
