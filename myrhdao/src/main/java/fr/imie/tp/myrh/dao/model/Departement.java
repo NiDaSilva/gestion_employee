@@ -44,18 +44,4 @@ public class Departement implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
-<<<<<<< HEAD
-=======
-
-    @Id
-    @Column(name = "dep_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-
-    @Column(name = "dep_code")
-    private String code;
-
-    @Column(name = "dep_description")
-    private String description;
->>>>>>> origin/master
 }
