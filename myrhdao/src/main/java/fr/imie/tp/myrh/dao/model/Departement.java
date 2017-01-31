@@ -9,6 +9,17 @@ import javax.persistence.*;
 @Table(name = "T_DEPARTEMENT")
 public class Departement {
 
+    @Id
+    @Column(name = "dep_id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    @Column(name = "dep_code")
+    private String code;
+
+    @Column(name = "dep_description")
+    private String description;
+
     public long getId() {
         return id;
     }
@@ -32,15 +43,4 @@ public class Departement {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    @Id
-    @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-
-    @Column(name = "CODE")
-    private String code;
-
-    @Column(name = "DESCRIPTION")
-    private String description;
 }

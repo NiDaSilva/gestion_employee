@@ -3,6 +3,8 @@ package fr.imie.tp.myrh.dao.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by ndasilva on 30/01/2017.
@@ -15,38 +17,43 @@ import java.util.Date;
 	@NamedQuery(name="Employe.findByID", query="SELECT e FROM Employe e WHERE e.id= :idVar"),
 	@NamedQuery(name="Employe.findByName", query="SELECT e FROM Employe e WHERE e.nom= :nomVar"),
 	@NamedQuery(name="Employe.findHighSalary", query="SELECT e FROM Employe e WHERE e.salaire > 40000")
-	
 })
 public class Employe implements Serializable{
-
-    @ManyToMany Departement departement;
 
 	private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "ID")
+    @Column(name = "empl_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(name = "NOM")
+    @Column(name = "empl_nom")
     private String nom;
 
-    @Column(name = "PRENOM")
+    @Column(name = "empl_prenom")
     private String prenom;
 
-    @Column(name = "NUM_SECU")
+    @Column(name = "empl_numSecu")
     private String num_secu;
 
-    @Column(name = "SALAIRE")
+    @Column(name = "empl_salaire")
     private double salaire;
 
-    @Column(name = "DATE_EMB")
+    @Column(name = "empl_dateEmb")
     @Temporal(TemporalType.DATE)
     private Date dateEmbauche;
 
-    @Column(name = "DATE_FIN_EMB")
+    @Column(name = "empl_dateFinEmb")
     @Temporal(TemporalType.DATE)
     private Date dateFinEmbauche;
+    
+    /**
+     * Liste des projets de l'employé.
+     */
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.REFRESH })
+    @JoinTable(name = "T_TRAVAIL", joinColumns = @JoinColumn(name = "tra_empl_id"),
+            inverseJoinColumns = @JoinColumn(name = "tra_pro_id"))
+    private Set<Projet> projets = new HashSet<Projet>();
 
     public Employe(String nom, String prenom, String num_secu, double salaire, Date dateEmbauche, Date dateFinEmbauche) {
         this.nom = nom;
