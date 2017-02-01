@@ -3,8 +3,6 @@ package fr.imie.tp.myrh.dao.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Created by ndasilva on 30/01/2017.

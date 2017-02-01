@@ -14,12 +14,15 @@ import java.util.Date;
         @NamedQuery(name="DemandeConge.findByEmploye", query="SELECT dc FROM DemandeConge dc WHERE dc.employe = :idVar")
 })
 public class DemandeConge implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
     @Id
     @Column(name = "demc_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.REFRESH })
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.REFRESH })
     @JoinColumn(name = "demc_empl_id")
     private Employe employe;
 
