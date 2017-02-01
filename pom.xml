@@ -11,6 +11,7 @@
         <module>myrhdao</module>
         <module>myrhcore</module>
         <module>myrhsvco</module>
+        <module>myrh-web</module>
     </modules>
     <packaging>pom</packaging>
 </project>
