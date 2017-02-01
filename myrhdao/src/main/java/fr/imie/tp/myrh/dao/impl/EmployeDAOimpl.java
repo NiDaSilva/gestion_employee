@@ -7,9 +7,6 @@ import java.util.List;
 
 import javax.persistence.*;
 
-/**
- * Created by ndasilva on 31/01/2017.
- */
 public class EmployeDAOimpl implements IEmployeDAO {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("myRhPersistenceUnit");
     EntityManager em = emf.createEntityManager();
@@ -23,21 +20,15 @@ public class EmployeDAOimpl implements IEmployeDAO {
 	}
 
 	public Employe getEmployeById(int id){
-		System.out.println("\nRECUPERATION D'UN EMPLOYE PAR SON ID");
-		EntityTransaction trx = em.getTransaction();
-		trx.begin();
-		Employe emp = em.find(Employe.class, id);
-		trx.commit();
-		return  emp;
+		System.out.println("\nRECUPERATION DE L'EMPLOYE : "+id);
+		return em.find(Employe.class, id);
 	}
 
 	public Employe getEmployeByName(String name){
-		System.out.println("\nRECUPERATION D'UN EMPLOYE PAR SON NOM");
-		EntityTransaction trx = em.getTransaction();
-		trx.begin();
-		Employe emp = em.find(Employe.class, name);
-		trx.commit();
-		return  emp;
+		System.out.println("\nRECUPERATION DE L'EMPLOYE : "+name);
+		TypedQuery<Employe> queryName = em.createNamedQuery("Employe.findByName", Employe.class);
+		queryName.setParameter("nomVar", name);
+		return queryName.getSingleResult();
 	}
 
 	public List<Employe> getAllEmploye() {

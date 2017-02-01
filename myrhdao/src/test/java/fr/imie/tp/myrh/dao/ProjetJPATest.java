@@ -27,6 +27,9 @@ public class ProjetJPATest {
 	    Projet projet1 = new Projet("proj1", "description", sdf.parse("25/12/2016"), sdf.parse("25/12/2017"), null);
 	    em.persist(projet1);
 	    System.out.println("Projet enregistré avec l'id "+projet1.getId());	    
+
+	    trx.commit();
+	    
 	    
 	    // Liste des Projets
 	    System.out.println("\nListe des Projets");
@@ -36,7 +39,6 @@ public class ProjetJPATest {
 	        System.out.println("\nID : "+projet.getId()+" Nom : "+projet.getCode());
 	    }
 	    
-	    trx.commit();
 	    em.close();
 	}
 }

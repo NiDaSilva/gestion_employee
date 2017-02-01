@@ -4,10 +4,13 @@ import java.util.List;
 
 import fr.imie.tp.myrh.dao.model.Employe;
 
-/**
- * Created by ndasilva on 31/01/2017.
- */
 public interface IEmployeDAO {
+	
+    public void addEmploye(Employe emp);
+
+	public Employe getEmployeById(int id);
+
+	public Employe getEmployeByName(String name);
     
     public List<Employe> getAllEmploye();
 
