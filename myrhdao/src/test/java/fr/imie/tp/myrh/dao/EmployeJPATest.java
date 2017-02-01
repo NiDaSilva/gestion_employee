@@ -53,7 +53,7 @@ public class EmployeJPATest {
 	    TypedQuery<Employe> query = em.createNamedQuery("Employe.findAll", Employe.class);
 	    List<Employe> result = query.getResultList();
 	    for(Employe employe : result) {
-	        System.out.println("\nID = "+employe.getId()+" Nom = "+employe.getNom());
+	        System.out.println("\nID : "+employe.getId()+" Nom : "+employe.getNom());
 	    }
 	    
 	    

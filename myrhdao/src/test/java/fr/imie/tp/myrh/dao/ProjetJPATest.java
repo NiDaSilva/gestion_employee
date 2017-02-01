@@ -1,6 +1,5 @@
 package fr.imie.tp.myrh.dao;
 
-import fr.imie.tp.myrh.dao.model.Employe;
 import fr.imie.tp.myrh.dao.model.Projet;
 
 import javax.persistence.EntityManager;
@@ -29,12 +28,12 @@ public class ProjetJPATest {
 	    em.persist(projet1);
 	    System.out.println("Projet enregistré avec l'id "+projet1.getId());	    
 	    
-	    // Liste des employés
+	    // Liste des Projets
 	    System.out.println("\nListe des Projets");
 	    TypedQuery<Projet> query = em.createNamedQuery("Projet.findAll", Projet.class);
 	    List<Projet> result = query.getResultList();
 	    for(Projet projet : result) {
-	        System.out.println("\nID = "+projet.getId()+" Nom = "+projet.getCode());
+	        System.out.println("\nID : "+projet.getId()+" Nom : "+projet.getCode());
 	    }
 	    
 	    trx.commit();
