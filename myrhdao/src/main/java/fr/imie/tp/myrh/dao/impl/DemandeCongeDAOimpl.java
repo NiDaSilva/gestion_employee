@@ -22,4 +22,10 @@ public class DemandeCongeDAOimpl implements IDemandeCongeDAO{
         TypedQuery<DemandeConge> query = em.createNamedQuery("DemandeConge.findAll", DemandeConge.class);
         return query.getResultList();
     }
+
+    public List<DemandeConge> getDemandeByEmploye(){
+        System.out.println("\nListe des Demandes de congés pour un employe");
+        TypedQuery<DemandeConge> query = em.createNamedQuery("DemandeConge.findByEmploye", DemandeConge.class);
+        return query.getResultList();
+    }
 }

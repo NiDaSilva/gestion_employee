@@ -24,19 +24,13 @@ public class EmployeDAOimpl implements IEmployeDAO {
 
 	public Employe getEmployeById(int id){
 		System.out.println("\nRECUPERATION D'UN EMPLOYE PAR SON ID");
-		EntityTransaction trx = em.getTransaction();
-		trx.begin();
 		Employe emp = em.find(Employe.class, id);
-		trx.commit();
 		return  emp;
 	}
 
 	public Employe getEmployeByName(String name){
 		System.out.println("\nRECUPERATION D'UN EMPLOYE PAR SON NOM");
-		EntityTransaction trx = em.getTransaction();
-		trx.begin();
 		Employe emp = em.find(Employe.class, name);
-		trx.commit();
 		return  emp;
 	}
 
