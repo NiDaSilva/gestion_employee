@@ -27,7 +27,7 @@ public class EmployeJPATest {
 	    trx.begin();
 	    
 	    System.out.println("\nCREATION D'UN EMPLOYE 1");
-	    Employe emp = new Employe("Da Silva", "Nicolas", "123456789", 60000, sdf.parse("25/12/2016"), sdf.parse("25/12/2018"));
+	    Employe emp = new Employe("Da Silva", "Nicolas", null, "123456789", 60000, sdf.parse("25/12/2016"), sdf.parse("25/12/2018"));
 	    em.persist(emp);
 	    System.out.println("Utilisateur enregistré avec l'id "+emp.getId());
 	    
@@ -35,6 +35,7 @@ public class EmployeJPATest {
 	    Employe emp1 = new Employe();
 	        emp1.setNom("Menant");
 	        emp1.setPrenom("Kevin");
+	        emp1.setDepartement(null);
 	        emp1.setNum_secu("9897654321");
 	        emp1.setDateEmbauche(sdf.parse("24/12/2016"));
 	        emp1.setDateFinEmbauche(sdf.parse("24/12/2018"));
@@ -42,7 +43,7 @@ public class EmployeJPATest {
 	    System.out.println("Utilisateur enregistré avec l'id "+emp1.getId());
 	    
 	    System.out.println("\nCREATION D'UN EMPLOYE 3");
-	    Employe emp3 = new Employe("Robin", "Dimitry","53678224",24000, sdf.parse("07/10/2016"),sdf.parse("12/09/2018"));
+	    Employe emp3 = new Employe("Robin", "Dimitry", null,"53678224",24000, sdf.parse("07/10/2016"),sdf.parse("12/09/2018"));
 	    em.persist(emp3);
 	    System.out.println("Utilisateur enregistré avec l'id "+emp3.getId());
 	    

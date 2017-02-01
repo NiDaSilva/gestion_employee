@@ -8,6 +8,11 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "T_DEPARTEMENT")
+@NamedQueries({
+	@NamedQuery(name="Employe.findAll", query="SELECT d FROM Departement d"),
+	@NamedQuery(name="Employe.findByID", query="SELECT d FROM Departement d WHERE d.id= :idVar"),
+	@NamedQuery(name="Employe.findByCode", query="SELECT d FROM Departement d WHERE d.code= :codeVar")
+})
 public class Departement implements Serializable {
 
     @Id
@@ -21,7 +26,17 @@ public class Departement implements Serializable {
     @Column(name = "dep_description")
     private String description;
 
-    public long getId() {
+    /**
+	 * @param id
+	 * @param code
+	 * @param description
+	 */
+	public Departement(String code, String description) {
+		this.code = code;
+		this.description = description;
+	}
+
+	public long getId() {
         return id;
     }
 

@@ -33,6 +33,10 @@ public class Employe implements Serializable{
     @Column(name = "empl_prenom")
     private String prenom;
 
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.REFRESH })
+    @JoinColumn(name = "empl_dep_id")
+	private Departement departement;
+
     @Column(name = "empl_numSecu")
     private String num_secu;
 
@@ -55,9 +59,10 @@ public class Employe implements Serializable{
             inverseJoinColumns = @JoinColumn(name = "tra_pro_id"))
     private Set<Projet> projets = new HashSet<Projet>();
 
-    public Employe(String nom, String prenom, String num_secu, double salaire, Date dateEmbauche, Date dateFinEmbauche) {
+    public Employe(String nom, String prenom, Departement dep, String num_secu, double salaire, Date dateEmbauche, Date dateFinEmbauche) {
         this.nom = nom;
         this.prenom = prenom;
+        this.departement = departement;
         this.num_secu = num_secu;
         this.salaire = salaire;
         this.dateEmbauche = dateEmbauche;
@@ -90,7 +95,19 @@ public class Employe implements Serializable{
         this.prenom = prenom;
     }
 
-    public String getNum_secu() {
+    /**
+	 * @return the departement
+	 */
+	public Departement getDepartement() {
+		return departement;
+	}
+	/**
+	 * @param departement the departement to set
+	 */
+	public void setDepartement(Departement departement) {
+		this.departement = departement;
+	}
+	public String getNum_secu() {
         return num_secu;
     }
 
