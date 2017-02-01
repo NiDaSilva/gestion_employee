@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/gestion_employee.iml" filepath="$PROJECT_DIR$/gestion_employee.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myrh-web/myrh-web.iml" filepath="$PROJECT_DIR$/myrh-web/myrh-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/myrhcore/myrhcore.iml" filepath="$PROJECT_DIR$/myrhcore/myrhcore.iml" />
       <module fileurl="file://$PROJECT_DIR$/myrhdao/myrhdao.iml" filepath="$PROJECT_DIR$/myrhdao/myrhdao.iml" />
       <module fileurl="file://$PROJECT_DIR$/myrhsvco/myrhsvco.iml" filepath="$PROJECT_DIR$/myrhsvco/myrhsvco.iml" />

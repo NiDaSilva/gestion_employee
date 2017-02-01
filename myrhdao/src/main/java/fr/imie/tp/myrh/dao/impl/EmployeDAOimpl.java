@@ -5,10 +5,7 @@ import fr.imie.tp.myrh.dao.model.Employe;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
+import javax.persistence.*;
 
 /**
  * Created by ndasilva on 31/01/2017.
@@ -16,6 +13,32 @@ import javax.persistence.TypedQuery;
 public class EmployeDAOimpl implements IEmployeDAO {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("myRhPersistenceUnit");
     EntityManager em = emf.createEntityManager();
+
+    public void addEmploye(Employe emp){
+		System.out.println("\nCREATION D'UN EMPLOYE");
+		EntityTransaction trx = em.getTransaction();
+		trx.begin();
+		em.persist(emp);
+		trx.commit();
+	}
+
+	public Employe getEmployeById(int id){
+		System.out.println("\nRECUPERATION D'UN EMPLOYE PAR SON ID");
+		EntityTransaction trx = em.getTransaction();
+		trx.begin();
+		Employe emp = em.find(Employe.class, id);
+		trx.commit();
+		return  emp;
+	}
+
+	public Employe getEmployeByName(String name){
+		System.out.println("\nRECUPERATION D'UN EMPLOYE PAR SON NOM");
+		EntityTransaction trx = em.getTransaction();
+		trx.begin();
+		Employe emp = em.find(Employe.class, name);
+		trx.commit();
+		return  emp;
+	}
 
 	public List<Employe> getAllEmploye() {
 		System.out.println("\nListe des Employés");

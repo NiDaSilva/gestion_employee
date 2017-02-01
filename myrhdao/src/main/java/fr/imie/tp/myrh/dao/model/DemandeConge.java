@@ -1,20 +1,36 @@
 package fr.imie.tp.myrh.dao.model;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by ndasilva on 31/01/2017.
  */
+@Entity
+@Table(name = "T_DEMANDE_CONGE")
+@NamedQueries({
+        @NamedQuery(name="DemandeConge.findAll", query="SELECT dc FROM DemandeConge dc"),
+        @NamedQuery(name="DemandeConge.findByEmploye", query="SELECT dc FROM DemandeConge dc WHERE dc.employe = :idVar")
+})
 public class DemandeConge implements Serializable{
     @Id
     @Column(name = "demc_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.REFRESH })
+    @JoinColumn(name = "demc_empl_id")
+    private Employe employe;
+
+    @Column(name = "demc_status")
+    private String status;
+
+    @Column(name = "demc_motif")
+    private String motif;
+
+    @Column(name = "demc_nbJour")
+    private String nbJour;
 
     @Column(name = "demc_dateDem")
     private Date dateDemande;
@@ -25,11 +41,18 @@ public class DemandeConge implements Serializable{
     @Column(name = "demc_dateFin")
     private Date dateFin;
 
-    @Column(name = "demc_motif")
-    private String motif;
+    public DemandeConge(Employe employe, String status, String motif, String nbJour, Date dateDemande, Date dateDebut, Date dateFin) {
+        this.employe = employe;
+        this.status = status;
+        this.motif = motif;
+        this.nbJour = nbJour;
+        this.dateDemande = dateDemande;
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
+    }
 
-    @Column(name = "demc_status")
-    private String status;
+    public DemandeConge() {
+    }
 
     public long getId() {
         return id;
@@ -87,6 +110,11 @@ public class DemandeConge implements Serializable{
         this.nbJour = nbJour;
     }
 
-    @Column(name = "demc_nbJour")
-    private String nbJour;
+    public Employe getEmploye() {
+        return employe;
+    }
+
+    public void setEmploye(Employe employe) {
+        this.employe = employe;
+    }
 }
