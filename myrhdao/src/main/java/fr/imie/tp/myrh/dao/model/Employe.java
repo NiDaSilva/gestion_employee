@@ -62,7 +62,7 @@ public class Employe implements Serializable{
     public Employe(String nom, String prenom, Departement dep, String num_secu, double salaire, Date dateEmbauche, Date dateFinEmbauche) {
         this.nom = nom;
         this.prenom = prenom;
-        this.departement = departement;
+        this.departement = dep;
         this.num_secu = num_secu;
         this.salaire = salaire;
         this.dateEmbauche = dateEmbauche;
@@ -95,18 +95,15 @@ public class Employe implements Serializable{
         this.prenom = prenom;
     }
 
-    /**
-	 * @return the departement
-	 */
+    
 	public Departement getDepartement() {
 		return departement;
 	}
-	/**
-	 * @param departement the departement to set
-	 */
+
 	public void setDepartement(Departement departement) {
 		this.departement = departement;
 	}
+	
 	public String getNum_secu() {
         return num_secu;
     }

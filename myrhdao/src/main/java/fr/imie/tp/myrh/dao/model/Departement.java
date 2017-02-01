@@ -9,9 +9,9 @@ import java.io.Serializable;
 @Entity
 @Table(name = "T_DEPARTEMENT")
 @NamedQueries({
-	@NamedQuery(name="Employe.findAll", query="SELECT d FROM Departement d"),
-	@NamedQuery(name="Employe.findByID", query="SELECT d FROM Departement d WHERE d.id= :idVar"),
-	@NamedQuery(name="Employe.findByCode", query="SELECT d FROM Departement d WHERE d.code= :codeVar")
+	@NamedQuery(name="Departement.findAll", query="SELECT d FROM Departement d"),
+	@NamedQuery(name="Departement.findByID", query="SELECT d FROM Departement d WHERE d.id= :idVar"),
+	@NamedQuery(name="Departement.findByCode", query="SELECT d FROM Departement d WHERE d.code= :codeVar")
 })
 public class Departement implements Serializable {
 
