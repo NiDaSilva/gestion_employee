@@ -1,6 +1,7 @@
 package fr.imie.tp.myrh.dao.ifc;
 
 import fr.imie.tp.myrh.dao.model.DemandeConge;
+import fr.imie.tp.myrh.dao.model.Employe;
 
 import java.util.List;
 
@@ -9,7 +10,9 @@ import java.util.List;
  */
 public interface IDemandeCongeDAO {
 
+    public void addDemande(DemandeConge dem);
+
     public List<DemandeConge> getAllDemande();
 
-    public List<DemandeConge> getDemandeByEmploye();
+    public List<DemandeConge> getDemandeByEmploye(Employe empl);
 }

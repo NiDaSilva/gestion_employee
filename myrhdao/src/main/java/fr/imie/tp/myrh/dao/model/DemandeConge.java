@@ -30,7 +30,7 @@ public class DemandeConge implements Serializable{
     private String motif;
 
     @Column(name = "demc_nbJour")
-    private String nbJour;
+    private int nbJour;
 
     @Column(name = "demc_dateDem")
     private Date dateDemande;
@@ -41,7 +41,7 @@ public class DemandeConge implements Serializable{
     @Column(name = "demc_dateFin")
     private Date dateFin;
 
-    public DemandeConge(Employe employe, String status, String motif, String nbJour, Date dateDemande, Date dateDebut, Date dateFin) {
+    public DemandeConge(Employe employe, String status, String motif, int nbJour, Date dateDemande, Date dateDebut, Date dateFin) {
         this.employe = employe;
         this.status = status;
         this.motif = motif;
@@ -102,11 +102,11 @@ public class DemandeConge implements Serializable{
         this.status = status;
     }
 
-    public String getNbJour() {
+    public int getNbJour() {
         return nbJour;
     }
 
-    public void setNbJour(String nbJour) {
+    public void setNbJour(int nbJour) {
         this.nbJour = nbJour;
     }
 
