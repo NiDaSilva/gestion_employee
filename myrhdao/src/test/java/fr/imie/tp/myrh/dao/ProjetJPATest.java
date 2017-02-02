@@ -24,9 +24,9 @@ public class ProjetJPATest {
 	    trx.begin();
 	    
 	    System.out.println("\nCREATION D'UN PROJET 1");
-	    Projet projet1 = new Projet("proj1", "description", sdf.parse("25/12/2016"), sdf.parse("25/12/2017"), null);
+	    Projet projet1 = new Projet("proj1", "description", sdf.parse("25/12/2016"), sdf.parse("25/12/2017"));
 	    em.persist(projet1);
-	    System.out.println("Projet enregistré avec l'id "+projet1.getId());	    
+	    System.out.println("Projet enregistré avec l'id "+projet1.getId());
 
 	    trx.commit();
 	    

@@ -7,12 +7,8 @@ import fr.imie.tp.myrh.dao.model.Employe;
 import javax.persistence.*;
 import java.util.List;
 
-/**
- * Created by ndasilva on 01/02/2017.
- */
 public class DemandeCongeDAOimpl implements IDemandeCongeDAO{
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("myRhPersistenceUnit");
-    EntityManager em = emf.createEntityManager();
+	  EntityManager em = EntityManagerImpl.getEm();
 
     public void addDemande(DemandeConge dem){
         System.out.println("\nCREATION D'UNE DEMANDE");

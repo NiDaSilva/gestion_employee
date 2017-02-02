@@ -3,6 +3,10 @@
    <persistence-unit name="myRhPersistenceUnit">
       <!-- <provider>org.hibernate.ejb.HibernatePersistence</provider> -->
       <class>fr.imie.tp.myrh.dao.model.Employe</class>
+      <class>fr.imie.tp.myrh.dao.model.Projet</class>
+      <class>fr.imie.tp.myrh.dao.model.Departement</class>
+      <class>fr.imie.tp.myrh.dao.model.Travail</class>
+      <class>fr.imie.tp.myrh.dao.model.DemandeConge</class>
      
       <properties>
        

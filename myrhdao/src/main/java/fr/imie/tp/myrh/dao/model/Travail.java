@@ -12,18 +12,23 @@ import java.util.Date;
 
 @NamedQueries({
 	@NamedQuery(name="Travail.findAll", query="SELECT t FROM Travail t"),
-	@NamedQuery(name="Travail.findByID", query="SELECT t FROM Travail t WHERE t.id= :idVar")
+	@NamedQuery(name="Travail.findByID", query="SELECT t FROM Travail t WHERE t.id= :idVar"),
+	@NamedQuery(name="Travail.findByEmploye", query="SELECT t FROM Travail t WHERE t.employe= :emplVar"),
+	@NamedQuery(name="Travail.findByProjet", query="SELECT t FROM Travail t WHERE t.projet= :projetVar")
 })
 public class Travail implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
+    @Column(name = "tra_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+	
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.REFRESH })
     @JoinColumn(name = "tra_empl_id")
 	private Employe employe;
 
-	@Id
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.REFRESH })
     @JoinColumn(name = "tra_pro_id")
 	private Projet projet;
@@ -54,6 +59,20 @@ public class Travail implements Serializable{
 
 	public Travail() {
     }
+
+	/**
+	 * @return the id
+	 */
+	public long getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	/**
 	 * @return the employe

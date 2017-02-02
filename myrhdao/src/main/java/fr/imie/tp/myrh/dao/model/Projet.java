@@ -3,6 +3,7 @@ package fr.imie.tp.myrh.dao.model;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -17,6 +18,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -35,8 +37,11 @@ public class Projet implements Serializable{
 
     @Id
     @Column(name = "pro_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    
+    @OneToMany(mappedBy = "projet")
+    private List<Travail> travails;
     
     @Column(name = "pro_code")
     private String code;
@@ -52,20 +57,19 @@ public class Projet implements Serializable{
     @Temporal(TemporalType.DATE)
     private Date dateFin;
     
-    /**
-     * Liste des employés sur le Projet.
-     */
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.REFRESH })
-    @JoinTable(name = "T_TRAVAIL", joinColumns = @JoinColumn(name = "tra_pro_id"),
-            inverseJoinColumns = @JoinColumn(name = "tra_empl_id"))
-    private Set<Employe> employes = new HashSet<Employe>();
+//    /**
+//     * Liste des employés sur le Projet.
+//     */
+//    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.REFRESH })
+//    @JoinTable(name = "T_TRAVAIL", joinColumns = @JoinColumn(name = "tra_pro_id"),
+//            inverseJoinColumns = @JoinColumn(name = "tra_empl_id"))
+//    private Set<Employe> employes = new HashSet<Employe>();
 
-	public Projet(String code, String description, Date dateDebut, Date dateFin, Set<Employe> employes) {
+	public Projet(String code, String description, Date dateDebut, Date dateFin) {
 		this.code = code;
 		this.description = description;
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
-		this.employes = employes;
 	}
 
 	/**
@@ -139,17 +143,31 @@ public class Projet implements Serializable{
 	}
 
 	/**
-	 * @return the employes
+	 * @return the travails
 	 */
-	public Set<Employe> getEmployes() {
-		return employes;
+	public List<Travail> getTravails() {
+		return travails;
 	}
 
 	/**
-	 * @param employes the employes to set
+	 * @param travails the travails to set
 	 */
-	public void setEmployes(Set<Employe> employes) {
-		this.employes = employes;
+	public void setTravails(List<Travail> travails) {
+		this.travails = travails;
 	}
+
+//	/**
+//	 * @return the employes
+//	 */
+//	public Set<Employe> getEmployes() {
+//		return employes;
+//	}
+//
+//	/**
+//	 * @param employes the employes to set
+//	 */
+//	public void setEmployes(Set<Employe> employes) {
+//		this.employes = employes;
+//	}
 
 }

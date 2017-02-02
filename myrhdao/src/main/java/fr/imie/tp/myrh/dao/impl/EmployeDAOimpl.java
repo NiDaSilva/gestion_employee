@@ -8,8 +8,7 @@ import java.util.List;
 import javax.persistence.*;
 
 public class EmployeDAOimpl implements IEmployeDAO {
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("myRhPersistenceUnit");
-    EntityManager em = emf.createEntityManager();
+	  EntityManager em = EntityManagerImpl.getEm();
 
     public void addEmploye(Employe emp){
 		System.out.println("\nCREATION D'UN EMPLOYE");
@@ -17,6 +16,7 @@ public class EmployeDAOimpl implements IEmployeDAO {
 		trx.begin();
 		em.persist(emp);
 		trx.commit();
+	    System.out.println("Utilisateur "+ emp.getNom() +" "+ emp.getPrenom() +" enregistré avec l'id "+emp.getId());
 	}
 
 	public Employe getEmployeById(int id){

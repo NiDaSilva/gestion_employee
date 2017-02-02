@@ -12,8 +12,7 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 public class ProjetDAOimpl implements IProjetDAO {
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("myRhPersistenceUnit");
-    EntityManager em = emf.createEntityManager();
+	  EntityManager em = EntityManagerImpl.getEm();
 
     public void addProjet(Projet projet){
 		System.out.println("\nCREATION D'UN PROJET");
@@ -21,6 +20,7 @@ public class ProjetDAOimpl implements IProjetDAO {
 		trx.begin();
 		em.persist(projet);
 		trx.commit();
+		System.out.println("Projet "+projet.getCode()+" enregistré avec l'id "+projet.getId());
 	}
 
 	public Projet getProjetById(int id){

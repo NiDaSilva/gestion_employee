@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -24,7 +25,7 @@ public class Employe implements Serializable{
 
     @Id
     @Column(name = "empl_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name = "empl_nom")
@@ -51,13 +52,16 @@ public class Employe implements Serializable{
     @Temporal(TemporalType.DATE)
     private Date dateFinEmbauche;
     
-    /**
-     * Liste des projets de l'employé.
-     */
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.REFRESH })
-    @JoinTable(name = "T_TRAVAIL", joinColumns = @JoinColumn(name = "tra_empl_id"),
-            inverseJoinColumns = @JoinColumn(name = "tra_pro_id"))
-    private Set<Projet> projets = new HashSet<Projet>();
+    @OneToMany(mappedBy = "employe")
+    private List<Travail> travails;
+    
+//    /**
+//     * Liste des projets de l'employé.
+//     */
+//    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.REFRESH })
+//    @JoinTable(name = "T_TRAVAIL", joinColumns = @JoinColumn(name = "tra_empl_id"),
+//            inverseJoinColumns = @JoinColumn(name = "tra_pro_id"))
+//    private Set<Projet> projets = new HashSet<Projet>();
 
     public Employe(String nom, String prenom, Departement dep, String num_secu, double salaire, Date dateEmbauche, Date dateFinEmbauche) {
         this.nom = nom;
@@ -135,4 +139,18 @@ public class Employe implements Serializable{
     public void setDateFinEmbauche(Date dateFinEmbauche) {
         this.dateFinEmbauche = dateFinEmbauche;
     }
+
+	/**
+	 * @return the travails
+	 */
+	public List<Travail> getTravails() {
+		return travails;
+	}
+
+	/**
+	 * @param travails the travails to set
+	 */
+	public void setTravails(List<Travail> travails) {
+		this.travails = travails;
+	}
 }

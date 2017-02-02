@@ -12,8 +12,7 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 public class DepartementDAOimpl implements IDepartementDAO {
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("myRhPersistenceUnit");
-    EntityManager em = emf.createEntityManager();
+	  EntityManager em = EntityManagerImpl.getEm();
 
     public void addDepartement(Departement dep){
 		System.out.println("\nCREATION D'UN DEPARTEMENT");
