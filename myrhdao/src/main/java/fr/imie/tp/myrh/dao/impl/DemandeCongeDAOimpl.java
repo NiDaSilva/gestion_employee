@@ -16,6 +16,7 @@ public class DemandeCongeDAOimpl implements IDemandeCongeDAO{
         trx.begin();
         em.persist(dem);
         trx.commit();
+		System.out.println("Demande de Conge de "+dem.getEmploye().getNom()+" "+dem.getEmploye().getPrenom()+" enregistré avec l'id "+dem.getId());
     }
 
     public List<DemandeConge> getAllDemande(){

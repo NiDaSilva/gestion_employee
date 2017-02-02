@@ -6,9 +6,7 @@ import fr.imie.tp.myrh.dao.model.Departement;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 public class DepartementDAOimpl implements IDepartementDAO {
@@ -20,6 +18,7 @@ public class DepartementDAOimpl implements IDepartementDAO {
 		trx.begin();
 		em.persist(dep);
 		trx.commit();
+	    System.out.println("Departement "+dep.getCode()+" enregistré avec l'id "+dep.getId());
 	}
 
 	public Departement getDepartementById(int id){

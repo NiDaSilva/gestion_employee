@@ -11,12 +11,8 @@ import javax.persistence.TypedQuery;
 
 import java.util.List;
 
-/**
- * Created by ndasilva on 02/02/2017.
- */
 public class StatusDAOimpl implements IStatusDAO {
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("myRhPersistenceUnit");
-    EntityManager em = emf.createEntityManager();
+	  EntityManager em = EntityManagerImpl.getEm();
 
     public void addStatus(Status stat){
         System.out.println("\nCREATION D'UN STATUS");
@@ -24,10 +20,11 @@ public class StatusDAOimpl implements IStatusDAO {
         trx.begin();
         em.persist(stat);
         trx.commit();
+		System.out.println("Status "+stat.getLibelle()+" enregistré avec l'id "+stat.getId());
     }
 
     public List<Status> getAllStatus(){
-        System.out.println("\nListe des Demandes de congés");
+        System.out.println("\nListe des Status :");
         TypedQuery<Status> query = em.createNamedQuery("Status.findAll", Status.class);
         return query.getResultList();
     }
