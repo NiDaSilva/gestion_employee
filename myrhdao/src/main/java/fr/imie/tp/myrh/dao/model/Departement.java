@@ -15,6 +15,8 @@ import java.io.Serializable;
 })
 public class Departement implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
     @Id
     @Column(name = "dep_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
