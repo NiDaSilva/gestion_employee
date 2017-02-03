@@ -1,8 +1,10 @@
 package fr.imie.tp.myrh.dao.impl;
 
 import fr.imie.tp.myrh.dao.ifc.IEmployeDAO;
+import fr.imie.tp.myrh.dao.model.Departement;
 import fr.imie.tp.myrh.dao.model.Employe;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
@@ -17,6 +19,18 @@ public class EmployeDAOimpl implements IEmployeDAO {
 		em.persist(emp);
 		trx.commit();
 	    System.out.println("Utilisateur "+ emp.getNom() +" "+ emp.getPrenom() +" enregistré avec l'id "+emp.getId());
+	}
+
+    public void addEmploye(String nom, String prenom, Departement dep, String num_secu, double salaire, Date dateEmbauche, Date dateFinEmbauche){
+    	Employe employe = new Employe();
+    	employe.setNom(nom);
+    	employe.setPrenom(prenom);
+    	employe.setDepartement(dep);
+    	employe.setNum_secu(num_secu);
+    	employe.setSalaire(salaire);
+    	employe.setDateEmbauche(dateEmbauche);
+    	employe.setDateFinEmbauche(dateFinEmbauche);
+    	this.addEmploye(employe);
 	}
 
 	public Employe getEmployeById(int id){

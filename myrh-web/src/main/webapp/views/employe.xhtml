@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+
+<!-- 
+	<h1>Hello World PrimeFaces</h1>
+	<h:form>
+	   <p:editor value="#{imieBean.value}" />
+	</h:form>
+ -->
+
+	<!--  Display Employe List -->
+	<p:dataTable id="emplTab" var="emp" value="#{employeViewController.employeItems}">
+    	<p:column headerText="Id">
+     	   <h:outputText value="#{emp.id}" />
+    	</p:column>
+ 
+    	<p:column headerText="Prénom">
+     	   <h:outputText value="#{emp.prenom}" />
+    	</p:column>
+ 
+   		 <p:column headerText="Nom">
+       		 <h:outputText value="#{emp.nom}" />
+    	</p:column>
+ 
+    	<p:column headerText="Salaire">
+      	  <h:outputFormat  value="#{emp.salaire}"   />
+   	 </p:column>
+	</p:dataTable>
+	
+	<!-- Ajout Employe -->
+	<h:form>
+		<h:panelGrid id="myPanel" columns="7" >
+		    <h:outputLabel value="Nom"/>
+		    <p:inputText id="empNom" value="#{employeBean.nom}" />
+		    
+		    <h:outputLabel value="Prenom"/>
+		    <p:inputText id="empPrenom" value="#{employeBean.prenom}" />
+		    
+		    <h:outputLabel value="Departement"/>
+		    <p:inputText id="empdep" value="#{employeBean.departement}" />
+		    
+		    <h:outputLabel value="Num Sécurité Social"/>
+		    <p:inputText id="empSecu" value="#{employeBean.num_secu}" />
+		    
+		    <h:outputLabel value="Salaire"/>
+		    <p:inputText id="empSal" value="#{employeBean.salaire}" />
+		    
+		    <h:outputLabel value="Date d'embauche"/>
+		    <p:inputText id="empDateDeb" value="#{employeBean.dateEmbauche}" />
+		    
+		    <h:outputLabel value="Date fin d'embauche"/>
+		    <p:inputText id="empDateFin" value="#{employeBean.dateFinEmbauche}" />
+		    
+		    <p:commandButton action="#{employeViewController.addEmploye}" value="Submit"/>
+		</h:panelGrid>
+	</h:form>
+
+</h:body>
+</html>
