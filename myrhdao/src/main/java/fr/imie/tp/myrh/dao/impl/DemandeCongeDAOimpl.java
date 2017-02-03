@@ -3,6 +3,7 @@ package fr.imie.tp.myrh.dao.impl;
 import fr.imie.tp.myrh.dao.ifc.IDemandeCongeDAO;
 import fr.imie.tp.myrh.dao.model.DemandeConge;
 import fr.imie.tp.myrh.dao.model.Employe;
+import fr.imie.tp.myrh.dao.model.Status;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -21,7 +22,7 @@ public class DemandeCongeDAOimpl implements IDemandeCongeDAO{
     }
 
 
-    public void addDemande(Employe employe, String status, String motif, int nbJour, Date dateDemande, Date dateDebut, Date dateFin){
+    public void addDemande(Employe employe, Status status, String motif, int nbJour, Date dateDemande, Date dateDebut, Date dateFin){
          DemandeConge dem = new DemandeConge();
          dem.setEmploye(employe);
          dem.setStatus(status);

@@ -2,6 +2,7 @@ package fr.imie.tp.myrh.dao.ifc;
 
 import fr.imie.tp.myrh.dao.model.DemandeConge;
 import fr.imie.tp.myrh.dao.model.Employe;
+import fr.imie.tp.myrh.dao.model.Status;
 
 import java.util.Date;
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
 public interface IDemandeCongeDAO {
 
     void addDemande(DemandeConge dem);
-    void addDemande(Employe employe, String status, String motif, int nbJour, Date dateDemande, Date dateDebut, Date dateFin);
+    void addDemande(Employe employe, Status status, String motif, int nbJour, Date dateDemande, Date dateDebut, Date dateFin);
 
     List<DemandeConge> getAllDemande();
 
