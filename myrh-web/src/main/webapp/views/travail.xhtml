@@ -21,8 +21,8 @@
 		 
 		    <p:menubar style="width: 330px; margin-left:auto; margin-right:auto;">
 		        <p:menuitem value="Home" url="../index.xhtml" icon="ui-icon-home" />
-		        <p:menuitem value="Projet" url="?" icon="ui-icon-document" />
-		        <p:menuitem value="Travail" url="/views/travail.xhtml" icon="ui-icon-pencil" />
+		        <p:menuitem value="Projet" url="/views/projet.xhtml" icon="ui-icon-document" />
+		        <p:menuitem value="Travail" icon="ui-icon-pencil" />
 		        <p:menuitem value="Employé" url="/views/employe.xhtml" icon="ui-icon-pencil" />
 		    </p:menubar>
 	    </p:panelGrid>
@@ -30,7 +30,6 @@
 
 <h:outputText value="&lt;br/&ght;" escape="false"/>
 
-	<h:form id="form">
 		<p:growl id="msgs" showDetail="true" />
 	
 	    <p:tabView dynamic="true" cache="true">
@@ -91,6 +90,5 @@
 	            </h:panelGrid>
 	        </p:tab>
 	    </p:tabView>
-	</h:form>
 </h:body>
 </html>
