@@ -9,7 +9,9 @@ import java.util.List;
  */
 public interface IStatusDAO {
 
-    public void addStatus(Status stat);
+    void addStatus(Status stat);
 
-    public List<Status> getAllStatus();
+    void addStatus(String libelle);
+
+    List<Status> getAllStatus();
 }

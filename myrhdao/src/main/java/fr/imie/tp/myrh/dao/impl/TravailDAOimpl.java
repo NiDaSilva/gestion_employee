@@ -5,6 +5,7 @@ import fr.imie.tp.myrh.dao.model.Employe;
 import fr.imie.tp.myrh.dao.model.Projet;
 import fr.imie.tp.myrh.dao.model.Travail;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
@@ -19,6 +20,16 @@ public class TravailDAOimpl implements ITravailDAO {
 		em.persist(trav);
 		trx.commit();
 	    System.out.println("Travail enregistré pour l'employe "+trav.getEmploye().getNom()+" sur le projet "+trav.getProjet().getCode());	
+	}
+
+	public void addTravail(Employe employe, Projet projet, Date date, int duree, String commentaire){
+	Travail trav = new Travail();
+	trav.setEmploye(employe);
+	trav.setProjet(projet);
+	trav.setDate(date);
+	trav.setDuree(duree);
+	trav.setCommentaire(commentaire);
+	addTravail(trav);
 	}
 
 	public Travail getTravailbyID(int id) {

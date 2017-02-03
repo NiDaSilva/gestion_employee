@@ -23,6 +23,11 @@ public class StatusDAOimpl implements IStatusDAO {
 		System.out.println("Status "+stat.getLibelle()+" enregistré avec l'id "+stat.getId());
     }
 
+    public void addStatus(String libelle){
+       Status stat = new Status(libelle);
+       addStatus(stat);
+    }
+
     public List<Status> getAllStatus(){
         System.out.println("\nListe des Status :");
         TypedQuery<Status> query = em.createNamedQuery("Status.findAll", Status.class);

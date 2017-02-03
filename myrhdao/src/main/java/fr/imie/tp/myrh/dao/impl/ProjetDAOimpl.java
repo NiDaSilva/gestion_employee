@@ -3,6 +3,7 @@ package fr.imie.tp.myrh.dao.impl;
 import fr.imie.tp.myrh.dao.ifc.IProjetDAO;
 import fr.imie.tp.myrh.dao.model.Projet;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -21,6 +22,12 @@ public class ProjetDAOimpl implements IProjetDAO {
 		em.persist(projet);
 		trx.commit();
 		System.out.println("Projet "+projet.getCode()+" enregistré avec l'id "+projet.getId());
+	}
+
+	public void addProjet(String code, String description, Date dateDebut, Date dateFin){
+    	Projet projo = new Projet(code,description,dateDebut,dateFin);
+    	addProjet(projo);
+
 	}
 
 	public Projet getProjetById(int id){

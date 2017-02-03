@@ -21,6 +21,11 @@ public class DepartementDAOimpl implements IDepartementDAO {
 	    System.out.println("Departement "+dep.getCode()+" enregistré avec l'id "+dep.getId());
 	}
 
+	public void addDepartement(String code, String description){
+		Departement dep = new Departement(code,description);
+		addDepartement(dep);
+	}
+
 	public Departement getDepartementById(int id){
 		System.out.println("\nRECUPERATION DU DEPARTEMENT : "+id);
 		return em.find(Departement.class, id);

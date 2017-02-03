@@ -5,6 +5,7 @@ import fr.imie.tp.myrh.dao.model.DemandeConge;
 import fr.imie.tp.myrh.dao.model.Employe;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 public class DemandeCongeDAOimpl implements IDemandeCongeDAO{
@@ -17,6 +18,19 @@ public class DemandeCongeDAOimpl implements IDemandeCongeDAO{
         em.persist(dem);
         trx.commit();
 		System.out.println("Demande de Conge de "+dem.getEmploye().getNom()+" "+dem.getEmploye().getPrenom()+" enregistré avec l'id "+dem.getId());
+    }
+
+
+    public void addDemande(Employe employe, String status, String motif, int nbJour, Date dateDemande, Date dateDebut, Date dateFin){
+         DemandeConge dem = new DemandeConge();
+         dem.setEmploye(employe);
+         dem.setStatus(status);
+         dem.setMotif(motif);
+         dem.setNbJour(nbJour);
+         dem.setDateDemande(dateDemande);
+         dem.setDateDebut(dateDebut);
+         dem.setDateFin(dateFin);
+         addDemande(dem);
     }
 
     public List<DemandeConge> getAllDemande(){

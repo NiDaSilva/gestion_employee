@@ -6,12 +6,13 @@ import fr.imie.tp.myrh.dao.model.Departement;
 
 public interface IDepartementDAO {
 	
-    public void addDepartement(Departement departement);
+    void addDepartement(Departement departement);
+    void addDepartement(String code, String description);
 
-	public Departement getDepartementById(int id);
+	Departement getDepartementById(int id);
 
-	public Departement getDepartementByCode(String code);
+	Departement getDepartementByCode(String code);
     
-    public List<Departement> getAllDepartements();
+    List<Departement> getAllDepartements();
 
 }
