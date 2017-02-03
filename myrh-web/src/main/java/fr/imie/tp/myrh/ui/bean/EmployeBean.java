@@ -6,7 +6,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
+@SessionScoped
 @ManagedBean(name="employeBean")
 public class EmployeBean implements Serializable{
 

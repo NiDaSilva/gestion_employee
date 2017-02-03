@@ -52,7 +52,7 @@
 	
 	<!-- Ajout Employe -->
 	<h:form>
-		<h:panelGrid id="myPanel" columns="7" >
+		<h:panelGrid id="myPanel" columns="2" cellpadding="5">
 		    <h:outputLabel value="Nom"/>
 		    <p:inputText id="empNom" value="#{employeBean.nom}" />
 		    
@@ -69,12 +69,12 @@
 		    <p:inputText id="empSal" value="#{employeBean.salaire}" />
 		    
 		    <h:outputLabel value="Date d'embauche"/>
-		    <p:inputText id="empDateDeb" value="#{employeBean.dateEmbauche}" />
+		    <p:calendar id="empDateDeb" value="#{employeBean.dateEmbauche}" />
 		    
 		    <h:outputLabel value="Date fin d'embauche"/>
-		    <p:inputText id="empDateFin" value="#{employeBean.dateFinEmbauche}" />
+		    <p:calendar id="empDateFin" value="#{employeBean.dateFinEmbauche}" />
 		    
-		    <p:commandButton action="#{employeViewController.addEmploye}" value="Submit"/>
+		    <p:commandButton actionListener="#{employeViewController.addEmploye()}" value="Submit"/>
 		</h:panelGrid>
 	</h:form>
 

@@ -17,7 +17,7 @@ public class EmployeViewController implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@ManagedProperty(value="#{employeBean}")
-	private EmployeBean employeBean;
+	private EmployeBean employeForm;
 	
 	private List<Employe> employeItems;
 	
@@ -30,15 +30,16 @@ public class EmployeViewController implements Serializable {
     }
 	
 	public void addEmploye() {
-		System.out.println("Utilisateur "+ employeBean.getNom() +" "+ employeBean.getPrenom());
+		System.out.println("Utilisateur "+ employeForm.getNom() +" "+ employeForm.getPrenom());
 		employeDaoService.addEmploye(
-			employeBean.getNom(), 
-			employeBean.getPrenom(), 
-			employeBean.getDepartement(), 
-			employeBean.getNum_secu(), 
-			employeBean.getSalaire(), 
-			employeBean.getDateEmbauche(), 
-			employeBean.getDateFinEmbauche()
+			employeForm.getNom(), 
+				employeForm.getPrenom(), 
+			//employeBean.getDepartement(), 
+			null,
+			employeForm.getNum_secu(), 
+			employeForm.getSalaire(), 
+			employeForm.getDateEmbauche(), 
+			employeForm.getDateFinEmbauche()
 		);
 	}
 	
@@ -50,12 +51,20 @@ public class EmployeViewController implements Serializable {
 		this.employeItems = employeItems;
 	}
 
-	public EmployeBean getEmployeBean() {
-		return employeBean;
+	/**
+	 * @return the employeForm
+	 */
+	public EmployeBean getEmployeForm() {
+		return employeForm;
 	}
 
-	public void setEmployeBean(EmployeBean employeBean) {
-		this.employeBean = employeBean;
+	/**
+	 * @param employeForm the employeForm to set
+	 */
+	public void setEmployeForm(EmployeBean employeForm) {
+		this.employeForm = employeForm;
 	}
+
+	
 	
 }
