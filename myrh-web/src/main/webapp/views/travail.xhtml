@@ -23,7 +23,7 @@
 		        <p:menuitem value="Home" url="../index.xhtml" icon="ui-icon-home" />
 		        <p:menuitem value="Projet" url="?" icon="ui-icon-document" />
 		        <p:menuitem value="Travail" url="/views/travail.xhtml" icon="ui-icon-pencil" />
-		        <p:menuitem value="Employé" icon="ui-icon-pencil" />
+		        <p:menuitem value="Employé" url="/views/employe.xhtml" icon="ui-icon-pencil" />
 		    </p:menubar>
 	    </p:panelGrid>
 	</h:form>
@@ -38,22 +38,30 @@
 	        <p:tab title="Liste">
 	            <h:panelGrid columns="2" cellpadding="10">
 									      <!--  Display Employe List -->
-						<p:dataTable id="emplTab" var="emp" value="#{employeViewController.employeItems}">
+						<p:dataTable >
 					    	<p:column headerText="Id">
 					     	   <h:outputText value="#{emp.id}" />
 					    	</p:column>
 					 
-					    	<p:column headerText="Prénom">
-					     	   <h:outputText value="#{emp.prenom}" />
+					    	<p:column headerText="Employé">
+					     	   <h:outputText value="#{emp.employe}" />
 					    	</p:column>
 					 
-					   		 <p:column headerText="Nom">
-					       		 <h:outputText value="#{emp.nom}" />
+					   		 <p:column headerText="Projet">
+					       		 <h:outputText value="#{emp.projet}" />
 					    	</p:column>
 					 
-					    	<p:column headerText="Salaire">
-					      	  <h:outputFormat  value="#{emp.salaire}"   />
-					   	 </p:column>
+					    	<p:column headerText="Date">
+					      	  <h:outputFormat  value="#{emp.date}"   />
+						   	 </p:column>
+						   	 
+						   	 <p:column headerText="Durée">
+						      	  <h:outputText  value="#{emp.duree}"   />
+						   	 </p:column>
+						   	 
+						   	 <p:column headerText="Commentaire">
+						      	  <h:outputText  value="#{emp.commentaire}"   />
+						   	 </p:column>
 						</p:dataTable>
 	            </h:panelGrid>
 	        </p:tab>
@@ -62,28 +70,22 @@
 	                <!-- Ajout Employe -->
 					<h:form>
 						<h:panelGrid id="myPanel" columns="2" cellpadding="5">
-						    <h:outputLabel value="Nom"/>
-						    <p:inputText id="empNom" value="#{employeBean.nom}" />
+						    <h:outputLabel value="Employé"/>
+						    <p:inputText id="empNom" />
 						    
-						    <h:outputLabel value="Prenom"/>
-						    <p:inputText id="empPrenom" value="#{employeBean.prenom}" />
+						    <h:outputLabel value="Pojet"/>
+						    <p:inputText id="empPrenom" />
 						    
-						    <h:outputLabel value="Departement"/>
-						    <p:inputText id="empdep" value="#{employeBean.departement}" />
+						    <h:outputLabel value="Date"/>
+						    <p:calendar id="empdep" />
 						    
-						    <h:outputLabel value="Num Sécurité Social"/>
-						    <p:inputText id="empSecu" value="#{employeBean.num_secu}" />
+						    <h:outputLabel value="Durée"/>
+						    <p:inputText id="empSecu" />
 						    
-						    <h:outputLabel value="Salaire"/>
-						    <p:inputText id="empSal" value="#{employeBean.salaire}" />
+						    <h:outputLabel value="Commentaire"/>
+						    <p:inputText id="empSal" />
 						    
-						    <h:outputLabel value="Date d'embauche"/>
-						    <p:calendar id="empDateDeb" value="#{employeBean.dateEmbauche}" />
-						    
-						    <h:outputLabel value="Date fin d'embauche"/>
-						    <p:calendar id="empDateFin" value="#{employeBean.dateFinEmbauche}" />
-						    
-						    <p:commandButton actionListener="#{employeViewController.addEmploye()}" value="Submit"/>
+						    <p:commandButton value="Submit"/>
 						</h:panelGrid>
 					</h:form>
 	            </h:panelGrid>
