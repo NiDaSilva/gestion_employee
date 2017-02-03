@@ -19,12 +19,12 @@ public class EmployeViewController implements Serializable {
 	private List<Employe> employeItems;
 	
 	
-	private final IEmployeDAO _employeDaoService = new EmployeDAOimpl();
+	private final IEmployeDAO employeDaoService = new EmployeDAOimpl();
 
 	
 	@PostConstruct
     public void init() {
-		employeItems = (List<Employe>) _employeDaoService.getAllEmploye();
+		employeItems = (List<Employe>) employeDaoService.getAllEmploye();
     }
 	
 	public List<Employe> getEmployeItems() {
