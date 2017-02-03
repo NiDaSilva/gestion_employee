@@ -19,23 +19,18 @@
  -->
 
 	<!--  Display Employe List -->
-	<p:dataTable var="emp" value="#{employeViewController.employeItems}">
-    	<p:column headerText="Id">
-     	   <h:outputText value="#{emp.id}" />
-    	</p:column>
- 
-    	<p:column headerText="Prénom">
-     	   <h:outputText value="#{emp.prenom}" />
-    	</p:column>
- 
-   		 <p:column headerText="Nom">
-       		 <h:outputText value="#{emp.nom}" />
-    	</p:column>
- 
-    	<p:column headerText="Salaire">
-      	  <h:outputFormat  value="#{emp.salaire}"   />
-   		</p:column>
-	</p:dataTable>
+	<h:form>  
+		<p:panelGrid styleClass="panelGridCenter">
+		    <p:growl id="messages"/>
+		 
+		    <p:menubar style="width: 330px; margin-left:auto; margin-right:auto;">
+		        <p:menuitem value="Home" icon="ui-icon-home" />
+		        <p:menuitem value="Projet" url="?" icon="ui-icon-document" />
+		        <p:menuitem value="Travail" url="?" icon="ui-icon-pencil" />
+		        <p:menuitem value="Employé" url="/views/employe.xhtml" icon="ui-icon-pencil" />
+		    </p:menubar>
+	    </p:panelGrid>
+	</h:form>
 
 </h:body>
 </html>
