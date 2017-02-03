@@ -55,6 +55,9 @@ public class Employe implements Serializable{
     @OneToMany(mappedBy = "employe")
     private List<Travail> travails;
     
+    @OneToMany(mappedBy = "employe")
+    private List<DemandeConge> demandesConge;
+    
 //    /**
 //     * Liste des projets de l'employé.
 //     */
@@ -63,7 +66,7 @@ public class Employe implements Serializable{
 //            inverseJoinColumns = @JoinColumn(name = "tra_pro_id"))
 //    private Set<Projet> projets = new HashSet<Projet>();
 
-    public Employe(String nom, String prenom, Departement dep, String num_secu, double salaire, Date dateEmbauche, Date dateFinEmbauche) {
+	public Employe(String nom, String prenom, Departement dep, String num_secu, double salaire, Date dateEmbauche, Date dateFinEmbauche) {
         this.nom = nom;
         this.prenom = prenom;
         this.departement = dep;
@@ -123,6 +126,7 @@ public class Employe implements Serializable{
     public void setSalaire(double salaire) {
         this.salaire = salaire;
     }
+    //souchu
 
     public Date getDateEmbauche() {
         return dateEmbauche;
@@ -152,5 +156,12 @@ public class Employe implements Serializable{
 	 */
 	public void setTravails(List<Travail> travails) {
 		this.travails = travails;
+	} 
+	
+	public List<DemandeConge> getDemandesConge() {
+		return demandesConge;
+	}
+	public void setDemandesConge(List<DemandeConge> demandesConge) {
+		this.demandesConge = demandesConge;
 	}
 }

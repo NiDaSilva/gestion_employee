@@ -25,9 +25,10 @@ public class DemandeConge implements Serializable{
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.REFRESH })
     @JoinColumn(name = "demc_empl_id")
     private Employe employe;
-
-    @Column(name = "demc_status")
-    private String status;
+    
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.REFRESH })
+    @JoinColumn(name = "demc_stat_id")
+    private Status status;
 
     @Column(name = "demc_motif")
     private String motif;
@@ -44,7 +45,7 @@ public class DemandeConge implements Serializable{
     @Column(name = "demc_dateFin")
     private Date dateFin;
 
-    public DemandeConge(Employe employe, String status, String motif, int nbJour, Date dateDemande, Date dateDebut, Date dateFin) {
+    public DemandeConge(Employe employe, Status status, String motif, int nbJour, Date dateDemande, Date dateDebut, Date dateFin) {
         this.employe = employe;
         this.status = status;
         this.motif = motif;
@@ -97,11 +98,11 @@ public class DemandeConge implements Serializable{
         this.motif = motif;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
